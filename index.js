@@ -37,7 +37,7 @@ arrPop.pop();
 
 const arrSlice1 = [1, 2, 3, 4, 5];
 const arrSlice2 = [1, 2, 3, 4, 5];
-arrSlice.slice(0, 3);
+arrSlice1.slice(0, 3);
 arrSlice2.slice(3);
 
 /**
@@ -124,3 +124,26 @@ const arrRandom = [];
 for (i = 0; i <= 10; i++) {
   arrRandom.push(Math.floor(Math.random() * 101));
 }
+
+
+function hasElem(arr,val){
+  
+  for(let i=0;i <= arr.length;i++){
+    
+    if(arr[i] === val){
+      return true;
+    }
+  }return false
+}
+function hasSameElem(arr,val){
+  for(let i=0;i < arr.length;i++){
+    if(arr[i] === val && arr[i+1] === val){
+      return true;
+    }
+  }return false;
+}
+
+const arr5 = ['a','b','cd','f'];
+const arr6 = [1,2,3,4,5,10,50];
+
+const arrSame = [1,4,7,6,6,4,3];
