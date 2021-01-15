@@ -120,6 +120,9 @@ function MyArray() {
     this.push(arguments[i]);
   }
 }
+MyArray.isMyArray = function (obj) {
+  return obj instanceof MyArray;
+};
 
 MyArray.prototype = new MyArrayProto(); // создаём связь между объектами(Наследование)
 
