@@ -58,17 +58,22 @@ function MyArrayProto() {
     
     for(let i=this.length-1; i>=0;i--){
       this[i+1]=this[i];
+      }
+      for(let i = 0; i < arg.length; j++){
+        this[0]=arg[i];
+      } 
+      return this.length++; 
     }
-    this[0]=arg;
-    return this.length++;
-  }
+    
+    
+  
 
   this.shift = function shift(){
     if (this.length <= 0) {
       return;
     }
     const firstItem = this[this[0]]
-    delete this[this[0]];
+    delete this[0];
     this.length--
     return firstItem;
   }
@@ -100,14 +105,14 @@ function MyArrayProto() {
     const newArray = new MyArray();
    
     for(let i=0; i < this.length; i++){
-       newArray[i]= func(this[i]);
+       newArray[i]= func(this[i],i ,array);
        newArray.length++;
     }
     return newArray;
   }
   this.forEach = function forEach (func){
     for(let i=0; i < this.length; i++){
-       func(this[i]);
+       func(this[i], i , array);
    }
   }
 
