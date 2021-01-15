@@ -54,13 +54,13 @@ function MyArrayProto() {
     return result;
   };
 
-  this.unshift = function unshift(arg){
+  this.unshift = function unshift(...arg){
     
     for(let i=this.length-1; i>=0;i--){
       this[i+1]=this[i];
     }
     this[0]=arg;
-    return this.length;
+    return this.length++;
   }
 
   this.shift = function shift(){
@@ -69,37 +69,39 @@ function MyArrayProto() {
     }
     const firstItem = this[this[0]]
     delete this[this[0]];
+    this.length--
     return firstItem;
   }
-  this.concat = function concat (){
+  this.concat = function concat (arr){
 
-    let newArray = [];
-    let lastThisArrayElementKey = this.length;
+    let newArray =new MyArray();
+    
 
-    for (let i = 0; i < this.length; i++) {
-      newArray[i] = this[i];
+    for (let i = 0; i < arr.length; i++) {
+      newArray[i] = arr[i];
     }
 
     for (let i = 0; i < arguments[0].length; i++) {  
-      newArray[lastThisArrayElementKey++] = arguments[0][i];
+      newArray[this.length++] = arguments[0][i];
     }
     
     return newArray;
   }
   this.reverse = function reverse(){
-    const newArray = [];
+    
     for( i=this.length-1; i>=0;i--){
       console.log(i,'i');
-      newArray.push(this[i])
+      this.push(this[i])
     }
-    return newArray;
+    return this;
   }
 
   this.map = function map(func){
-    const newArray = [];
+    const newArray = new MyArray();
    
     for(let i=0; i < this.length; i++){
        newArray[i]= func(this[i]);
+       newArray.length++;
     }
     return newArray;
   }
